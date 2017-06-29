@@ -4,6 +4,9 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
     defaultConfig {
+        manifestPlaceholders = [onesignal_app_id: "fa8752cd-fd1f-4b50-a6a4-60547c7c78a0",
+                                // Project number pulled from dashboard, local value is ignored.
+                                onesignal_google_project_number: "367203018964"]
         applicationId "com.example.kshrd.mynavigationdraswe"
         minSdkVersion 17
         targetSdkVersion 26
@@ -25,9 +28,11 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.+'
+//    compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:design:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.firebase:firebase-messaging:10.0.1'
+    compile 'com.onesignal:OneSignal:[3.5.3,4.0.0)'
     testCompile 'junit:junit:4.12'
 }
 

@@ -24,8 +24,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
         }
 
-        String title = remoteMessage.getNotification().getTitle();
-        String body = remoteMessage.getNotification().getBody();
+//        String title = remoteMessage.getNotification().getTitle();
+//        String body = remoteMessage.getNotification().getBody();
+        String title = "hellll";
+   String body = "hellll11";
 
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
