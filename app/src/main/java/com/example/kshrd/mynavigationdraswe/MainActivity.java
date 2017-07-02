@@ -25,10 +25,14 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView tvtitle= (TextView) findViewById(R.id.tvtitle);
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/KhmerOSmuollight.ttf");
+        NavigationView navigationView1= (NavigationView) findViewById(R.id.nav_view);
+        if(navigationView1!=null){
+            TextView tvtitle= (TextView) navigationView1.getHeaderView(0).findViewById(R.id.tvtitle);
+            Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/KhmerOSmuollight.ttf");
+            tvtitle.setTypeface(custom_font);
+        }
 
-//        tvtitle.setTypeface(custom_font);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
