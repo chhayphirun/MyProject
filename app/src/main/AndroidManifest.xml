@@ -35,8 +35,15 @@
         <activity android:name=".DetailActivity">
             <intent-filter>
                 <action android:name="OPEN_DETAIL" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings">
+
+
         </activity>
     </application>
 

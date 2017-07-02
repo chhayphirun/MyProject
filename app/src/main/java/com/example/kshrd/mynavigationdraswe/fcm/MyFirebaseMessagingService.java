@@ -23,11 +23,19 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
         }
+        String title;
+        String body;
 
 //        String title = remoteMessage.getNotification().getTitle();
 //        String body = remoteMessage.getNotification().getBody();
-        String title = "hellll";
-   String body = "hellll11";
+        if(remoteMessage.getNotification()!=null){
+            title = remoteMessage.getNotification().getTitle();
+            body = remoteMessage.getNotification().getBody();
+        }else {
+            title = "Title is Null";
+            body = "Body is Null";
+
+        }
 
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);

@@ -1,10 +1,11 @@
 package com.example.kshrd.mynavigationdraswe;
 
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.onesignal.OneSignal;
 
@@ -22,6 +25,11 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView tvtitle= (TextView) findViewById(R.id.tvtitle);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/KhmerOSmuollight.ttf");
+
+//        tvtitle.setTypeface(custom_font);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -44,7 +52,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         OneSignal.sendTag("dara_fb","phirun");
 //        OneSignal.deleteTag("dara_fb");
+
     }
+
 
     @Override
     public void onBackPressed() {
@@ -72,6 +82,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent=new Intent(this,SettingsActivity.class);
+            startActivity(intent);
             return true;
         }
 
