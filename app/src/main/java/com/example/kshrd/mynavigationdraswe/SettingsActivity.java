@@ -158,20 +158,20 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     public void onBuildHeaders(List<Header> target) {
         loadHeadersFromResource(R.xml.pref_headers, target);
     }
+
     @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-//        return super.onMenuItemSelected(featureId, item);
-        int itemId = item.getItemId();
-        switch (itemId) {
-            case android.R.id.home:
-//                if(itemId>3&&itemId<0){
-                    startActivity(new Intent(this, MainActivity.class));
-                    break;
-//                }
-                // Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        Log.e("ooooo",getSupportActionBar().getTitle().toString());
+        if (id == android.R.id.home) {
+            if(getSupportActionBar().getTitle().toString().equals("Settings")){
+                startActivity(new Intent(SettingsActivity.this, MainActivity.class));
+                return true;
+            }
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
+
     /**
      * This method stops fragment injection in malicious applications.
      * Make sure to deny any unknown fragments here.
